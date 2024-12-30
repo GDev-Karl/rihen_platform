@@ -1,0 +1,37 @@
+.study-statistics {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+  }
+  
+  .study-statistics h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 150px;
+  }
+  
+  .bar {
+    width: 20px;
+    background-color: #4caf50;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    position: relative;
+  }
+  
+  .bar span {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
