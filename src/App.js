@@ -5,6 +5,7 @@ import Header from "./components/StaticComponents/Header";
 import Sidebar from "./components/StaticComponents/Sidebar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Average from "./components/StaticComponents/Average";
+import Plannning from "./components/Planning/Planning";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -43,7 +44,7 @@ function App() {
               {/* Contenu dynamique */}
 
               {activeView === "Home" && <Dashboard />}
-              {activeView === "My Planning" && <Average />}
+              {activeView === "My Planning" && <Plannning />}
               {/* Ajoutez ici les composants pour les autres vues */}
               {activeView === "Projects" && <div>Projects Component</div>}
               {activeView === "QA Reviews I can make" && (
