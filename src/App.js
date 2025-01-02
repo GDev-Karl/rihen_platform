@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Box, Grid2 } from "@mui/material";
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
-import Dashboard from "./components/Dasboard";
-import Average from "./components/Average";
+import Header from "./components/StaticComponents/Header";
+import Sidebar from "./components/StaticComponents/Sidebar";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Average from "./components/StaticComponents/Average";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [activeView, setActiveView] = useState("Dashboard");
+  const [activeView, setActiveView] = useState("Home");
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prev) => !prev);
   };
 
   const handleMenuSelect = (menuText) => {
-    setActiveView(menuText); // Change la vue active en fonction du menu sélectionné
+    setActiveView(menuText); // Change the active view base on the menu selected
   };
 
   return (
     <Router>
       <Grid2 container spacing={2}>
         <Grid2 size={12}>
-          <Header toggleSidebar={toggleSidebar} />
+          <Header toggleSidebar={toggleSidebar} notificationsCount={2}/>
         </Grid2>
         <Box sx={{ display: "flex", height: "100vh" }}>
           {/* Sidebar */}
