@@ -1,25 +1,39 @@
-import React from "react";
-import "./MyCourses.css";
+import React from 'react';
+import { Paper, Typography, Grid, Box, Grid2 } from '@mui/material';
 
 const MyCourses = () => {
   const courses = [
-    { title: "Introduction to lorem ipsum", instructor: "Shams Tabrez" },
-    { title: "English for today", instructor: "Shams Tabrez" },
-    { title: "Basic of lorem ipsum color", instructor: "Shams Tabrez" },
+    { title: 'Introduction to lorem ipsum...', progress: 50 },
+    { title: 'English for today', progress: 70 },
+    { title: 'Basic of Lorem ipsum color...', progress: 30 }
   ];
 
   return (
-    <section className="my-courses">
-      <h2>My Courses</h2>
-      <div className="course-list">
+    <Paper sx={{ padding: 2 }}>
+      <Typography variant="h6">My Courses</Typography>
+      <Grid2 container spacing={2} sx={{ marginTop: 2 }}>
         {courses.map((course, index) => (
-          <div className="course-card" key={index}>
-            <h3>{course.title}</h3>
-            <p>{course.instructor}</p>
-          </div>
+          <Grid2 item xs={4} key={index}>
+            <Paper sx={{ padding: 2, textAlign: 'center' }}>
+              <Typography>{course.title}</Typography>
+              <Box
+                sx={{
+                  width: 50,
+                  height: 50,
+                  borderRadius: '50%',
+                  border: '5px solid',
+                  borderColor: 'primary.main',
+                  lineHeight: '50px',
+                  margin: 'auto'
+                }}
+              >
+                {course.progress}%
+              </Box>
+            </Paper>
+          </Grid2>
         ))}
-      </div>
-    </section>
+      </Grid2>
+    </Paper>
   );
 };
 
