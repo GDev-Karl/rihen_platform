@@ -1,43 +1,24 @@
-import React from "react";
-import "./Activity.css";
+import React from 'react';
+import { Paper, Typography, List, ListItem, ListItemText } from '@mui/material';
 
 const Activity = () => {
   const activities = [
-    {
-      user: "Felix",
-      action: "replied on",
-      content: "At aliquam enim in cras arcu",
-      timestamp: "25th Sep, 11:00 am",
-    },
-    {
-      user: "Ludwig",
-      action: "invited you to",
-      content: "Imperdiet enim est, varius faucibus.",
-      timestamp: "25th Sep, 10:00 am",
-    },
-    {
-      user: "Jonathan",
-      action: "commented on",
-      content: "Venenatis aliquam et pellentesque...",
-      timestamp: "24th Sep, 4:00 pm",
-    },
+    { user: 'Felix', action: 'has replied on "Aliquam enim in cras arcu"', date: '25 Sep' },
+    { user: 'Ludwig', action: 'invited you to "Imperdiet enim est, varius faucibus"', date: '25 Sep' },
+    { user: 'Jonathon', action: 'commented on "Venenatis aliquam sit pellentesque"', date: '24 Sep' }
   ];
 
   return (
-    <section className="activity">
-      <h2>Activity</h2>
-      <div className="activity-list">
+    <Paper sx={{ padding: 2 }}>
+      <Typography variant="h6">Activity</Typography>
+      <List>
         {activities.map((activity, index) => (
-          <div className="activity-item" key={index}>
-            <p>
-              <strong>{activity.user}</strong> {activity.action}{" "}
-              <em>{activity.content}</em>
-            </p>
-            <span>{activity.timestamp}</span>
-          </div>
+          <ListItem key={index}>
+            <ListItemText primary={`${activity.user} ${activity.action}`} secondary={activity.date} />
+          </ListItem>
         ))}
-      </div>
-    </section>
+      </List>
+    </Paper>
   );
 };
 
