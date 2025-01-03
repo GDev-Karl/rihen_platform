@@ -6,6 +6,7 @@ import Sidebar from "./components/StaticComponents/Sidebar";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Average from "./components/StaticComponents/Average";
 import Plannning from "./components/Planning/Planning";
+import Project from "./components/Project/Project";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -46,7 +47,7 @@ function App() {
               {activeView === "Home" && <Dashboard />}
               {activeView === "My Planning" && <Plannning />}
               {/* Ajoutez ici les composants pour les autres vues */}
-              {activeView === "Projects" && <div>Projects Component</div>}
+              {activeView === "Projects" && <Project />}
               {activeView === "QA Reviews I can make" && (
                 <div>QA Reviews Component</div>
               )}
