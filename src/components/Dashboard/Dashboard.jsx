@@ -10,20 +10,11 @@ const Dashboard = () => {
   return (
     <Box sx={{ padding: 3 }}>
       <Grid2 container spacing={2}>
-        <Grid2 item xs={12}>
+        <Grid2 item size={8}>
           <Overview />
         </Grid2>
-        <Grid2 item xs={8}>
-          <StudyStatistics />
-        </Grid2>
-        <Grid2 item xs={4}>
+        <Grid2 item size={4}>
           <LiveEvents />
-        </Grid2>
-        <Grid2 item xs={8}>
-          <MyCourses />
-        </Grid2>
-        <Grid2 item xs={4}>
-          <Activity />
         </Grid2>
       </Grid2>
     </Box>
