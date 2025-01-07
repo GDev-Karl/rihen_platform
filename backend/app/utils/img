@@ -1,0 +1,20 @@
+rihen_universe/
+│
+├── app/
+│   ├── __init__.py          # Initialisation de l'application Flask
+│   ├── models.py            # Modèles SQLAlchemy
+│   ├── extensions.py        # Extensions Flask (db, migrate, api)
+│   ├── routes/
+│   │   ├── __init__.py      # Initialisation des routes
+│   │   ├── auth_routes.py   # Routes pour l'authentification
+│   │   ├── course_routes.py # Routes pour les cours
+│   │   ├── user_routes.py   # Routes pour les utilisateurs
+│   │   ├── project_routes.py# Routes pour les projets
+│   └── utils/
+│       ├── decorators.py    # Décorateurs utiles
+│       ├── helpers.py       # Fonctions utilitaires
+│
+├── migrations/              # Dossier des migrations pour la base de données
+├── config.py                # Configuration de l'application
+├── requirements.txt         # Dépendances Python
+├── run.py                   # Point d'entrée de l'application
