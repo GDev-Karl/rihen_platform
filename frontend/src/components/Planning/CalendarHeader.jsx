@@ -1,21 +1,31 @@
-import React from 'react';
-import { Button, Typography, Box } from '@mui/material';
+import React from "react";
+import { Box, Button, Typography, IconButton } from "@mui/material";
+import { ArrowBack, ArrowForward } from "@mui/icons-material";
 
-const CalendarHeader = ({ currentDate, currentView, setCurrentView, changeMonth }) => {
-  const monthName = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
+const CalendarHeader = ({ currentDate, changeMonth }) => {
+  const formattedDate = currentDate.toLocaleString("default", {
+    month: "long",
+    year: "numeric",
+  });
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: 2 }}>
-      <Button onClick={() => changeMonth(-1)}>&lt; Prev</Button>
-      <Typography variant="h6">{monthName}</Typography>
-      <Button onClick={() => changeMonth(1)}>Next &gt;</Button>
-      <Box>
-        <Button onClick={() => setCurrentView('day')}>Day</Button>
-        <Button onClick={() => setCurrentView('week')}>Week</Button>
-        <Button onClick={() => setCurrentView('month')} variant="contained" color="primary">
-          Month
-        </Button>
-      </Box>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 2,
+      }}
+    >
+      <IconButton onClick={() => changeMonth(-1)}>
+        <ArrowBack />
+      </IconButton>
+      <Typography variant="h5" sx={{ textTransform: "capitalize" }}>
+        {formattedDate}
+      </Typography>
+      <IconButton onClick={() => changeMonth(1)}>
+        <ArrowForward />
+      </IconButton>
     </Box>
   );
 };
