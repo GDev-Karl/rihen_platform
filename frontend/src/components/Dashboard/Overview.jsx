@@ -53,7 +53,7 @@ const Overview = () => {
     },
     {
       icon: <ArticleIcon style={{ color: "#1DA1F2" }} />,
-      title: "Active Prototypes",
+      title: "Active Projects",
       value: "7",
     },
     {

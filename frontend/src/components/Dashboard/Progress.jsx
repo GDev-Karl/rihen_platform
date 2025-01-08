@@ -38,7 +38,7 @@ const Progress = () => {
   // Données simulées
   const progressData = [
     { label: "Courses", value: 45, color: "#004D40" }, // Cercle vert foncé
-    { label: "Prototypes", value: 80, color: "#1E88E5" }, // Cercle bleu
+    { label: "Projects", value: 80, color: "#1E88E5" }, // Cercle bleu
   ];
 
   return (
