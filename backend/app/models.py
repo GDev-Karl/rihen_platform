@@ -1,117 +1,144 @@
-from datetime import datetime
+from datetime import date
 from app.extensions import db
 
-
-# User Model
+# User Table
 class User(db.Model):
-    __tablename__ = "users"
+    __tablename__ = 'user'
 
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    registration_date = db.Column(db.DateTime, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    email = db.Column(db.String, unique=True, nullable=False)
+    role = db.Column(db.String, nullable=False)
+    password = db.Column(db.String, nullable=False)
+    registration_date = db.Column(db.Date, default=date.today)
 
-    # Relationships
-    enrollments = db.relationship("Enrollment", back_populates="user", cascade="all, delete")
-    projects = db.relationship("UserProject", back_populates="user", cascade="all, delete")
-
-
-# Curriculum Model
+# Curriculum Table
 class Curriculum(db.Model):
-    __tablename__ = "curriculums"
+    __tablename__ = 'curriculum'
 
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
+    curriculum_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
     description = db.Column(db.Text, nullable=True)
 
-    # Relationships
-    modules = db.relationship("Module", back_populates="curriculum", cascade="all, delete")
-    enrollments = db.relationship("Enrollment", back_populates="curriculum", cascade="all, delete")
+# User_Curriculum Table
+class UserCurriculum(db.Model):
+    __tablename__ = 'user_curriculum'
 
+    user_curriculum_id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
+    curriculum_id = db.Column(db.Integer, db.ForeignKey('curriculum.curriculum_id'), nullable=False)
 
-# Module Model
+# Module Table
 class Module(db.Model):
-    __tablename__ = "modules"
+    __tablename__ = 'module'
 
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
+    module_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
     description = db.Column(db.Text, nullable=True)
-    curriculum_id = db.Column(db.Integer, db.ForeignKey("curriculums.id"), nullable=False)
-    prerequisite_id = db.Column(db.Integer, db.ForeignKey("modules.id"), nullable=True)  # Self-reference for prerequisites
+    curriculum_id = db.Column(db.Integer, db.ForeignKey('curriculum.curriculum_id'), nullable=False)
+    prerequisite_module_id = db.Column(db.Integer, db.ForeignKey('module.module_id'), nullable=True)
 
-    # Relationships
-    curriculum = db.relationship("Curriculum", back_populates="modules")
-    prerequisite = db.relationship("Module", remote_side=[id])  # Self-referencing relationship
-    courses = db.relationship("Course", back_populates="module", cascade="all, delete")
+# Course_Description Table
+class CourseDescription(db.Model):
+    __tablename__ = 'course_description'
 
+    course_description_id = db.Column(db.Integer, primary_key=True)
+    skills = db.Column(db.String, nullable=True)
+    weight = db.Column(db.Integer, nullable=True)
+    concepts = db.Column(db.String, nullable=True)
+    requirements = db.Column(db.Text, nullable=True)
+    learning_objectives = db.Column(db.Text, nullable=True)
 
-# Course Model
+# Course Table
 class Course(db.Model):
-    __tablename__ = "courses"
+    __tablename__ = 'course'
 
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    content = db.Column(db.Text, nullable=True)
-    duration_hours = db.Column(db.Float, nullable=False)
-    module_id = db.Column(db.Integer, db.ForeignKey("modules.id"), nullable=False)
+    course_id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, nullable=False)
+    description = db.Column(db.Integer, db.ForeignKey('course_description.course_description_id'), nullable=False)
+    module_id = db.Column(db.Integer, db.ForeignKey('module.module_id'), nullable=False)
+    duration = db.Column(db.Integer, nullable=False)  # duration in minutes
 
-    # Relationships
-    module = db.relationship("Module", back_populates="courses")
-    evaluations = db.relationship("Evaluation", back_populates="course", cascade="all, delete")
+# Task Table
+class Task(db.Model):
+    __tablename__ = 'task'
 
-
-# Evaluation Model
-class Evaluation(db.Model):
-    __tablename__ = "evaluations"
-
-    id = db.Column(db.Integer, primary_key=True)
-    score = db.Column(db.Float, nullable=False)
-    max_score = db.Column(db.Float, nullable=False)
-    date = db.Column(db.DateTime, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    course_id = db.Column(db.Integer, db.ForeignKey("courses.id"), nullable=False)
-
-    # Relationships
-    course = db.relationship("Course", back_populates="evaluations")
-    user = db.relationship("User", back_populates="evaluations")
-
-
-# Enrollment Model
-class Enrollment(db.Model):
-    __tablename__ = "enrollments"
-
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    curriculum_id = db.Column(db.Integer, db.ForeignKey("curriculums.id"), nullable=False)
-    average_score = db.Column(db.Float, nullable=True)
-
-    # Relationships
-    user = db.relationship("User", back_populates="enrollments")
-    curriculum = db.relationship("Curriculum", back_populates="enrollments")
-
-
-# Project Model
-class Project(db.Model):
-    __tablename__ = "projects"
-
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
+    task_id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, nullable=False)
     description = db.Column(db.Text, nullable=True)
-    deadline = db.Column(db.DateTime, nullable=True)
-
-    # Relationships
-    user_projects = db.relationship("UserProject", back_populates="project", cascade="all, delete")
-
-
-# UserProject Model (Association table for users and projects)
-class UserProject(db.Model):
-    __tablename__ = "user_projects"
-
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    project_id = db.Column(db.Integer, db.ForeignKey("projects.id"), nullable=False)
+    course_id = db.Column(db.Integer, db.ForeignKey('course.course_id'), nullable=False)
+    type = db.Column(db.String, nullable=False)  # e.g., Quiz, Project
     score = db.Column(db.Float, nullable=True)
+    file = db.Column(db.String, nullable=True)
+    repo = db.Column(db.String, nullable=True)
+    directory = db.Column(db.String, nullable=True)
 
-    # Relationships
-    user = db.relationship("User", back_populates="projects")
-    project = db.relationship("Project", back_populates="user_projects")
+# Evaluation Table
+class Evaluation(db.Model):
+    __tablename__ = 'evaluation'
+
+    evaluation_id = db.Column(db.Integer, primary_key=True)
+    module_id = db.Column(db.Integer, db.ForeignKey('module.module_id'), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    score = db.Column(db.Float, nullable=True)
+    assessment_date = db.Column(db.Date, nullable=False)
+
+# Project Table
+class Project(db.Model):
+    __tablename__ = 'project'
+
+    project_id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    module_id = db.Column(db.Integer, db.ForeignKey('curriculum.curriculum_id'), nullable=False)
+    deadline = db.Column(db.Date, nullable=False)
+    status = db.Column(db.String, nullable=False)  # In Progress, Completed, Abandoned
+
+# Progress Table
+class Progress(db.Model):
+    __tablename__ = 'progress'
+
+    progress_id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
+    module_id = db.Column(db.Integer, db.ForeignKey('module.module_id'), nullable=False)
+    status = db.Column(db.String, nullable=False)  # In Progress, Completed
+    learning_time = db.Column(db.Integer, nullable=True)  # in minutes
+
+# Curriculum_Average Table
+class CurriculumAverage(db.Model):
+    __tablename__ = 'curriculum_average'
+
+    average_id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
+    curriculum_id = db.Column(db.Integer, db.ForeignKey('curriculum.curriculum_id'), nullable=False)
+    average = db.Column(db.Float, nullable=True)
+
+# User_Statistics Table
+class UserStatistics(db.Model):
+    __tablename__ = 'user_statistics'
+
+    stat_id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
+    curriculum_id = db.Column(db.Integer, db.ForeignKey('curriculum.curriculum_id'), nullable=False)
+    total_learning_time = db.Column(db.Integer, nullable=True)  # in minutes
+    last_access = db.Column(db.Date, nullable=True)
+
+# General_Statistics Table
+class GeneralStatistics(db.Model):
+    __tablename__ = 'general_statistics'
+
+    general_stat_id = db.Column(db.Integer, primary_key=True)
+    curriculum_id = db.Column(db.Integer, db.ForeignKey('curriculum.curriculum_id'), nullable=False)
+    average_score = db.Column(db.Float, nullable=True)
+    total_learning_hours = db.Column(db.Float, nullable=True)
+    total_students = db.Column(db.Integer, nullable=True)
+
+# Ranking Table
+class Ranking(db.Model):
+    __tablename__ = 'ranking'
+
+    ranking_id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
+    curriculum_id = db.Column(db.Integer, db.ForeignKey('curriculum.curriculum_id'), nullable=False)
+    rank = db.Column(db.Integer, nullable=True)
+    average = db.Column(db.Float, nullable=True)
