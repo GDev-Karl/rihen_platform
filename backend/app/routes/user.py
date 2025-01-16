@@ -1,5 +1,6 @@
+from flask import jsonify
 from flask_restx import Namespace, Resource, fields
-from app.models import User
+from app.models import User, UserCurriculum, Curriculum, CurriculumAverage
 from app.extensions import db
 from datetime import datetime
 
@@ -14,6 +15,17 @@ user_model = user_ns.model("User", {
     "password": fields.String(required=True, description="The password of the user"),
     "registration_date": fields.DateTime(description="The registration date of the user"),
 })
+
+# Model for the API response
+curriculum_model = user_ns.model(
+    "Curriculum",
+    {
+        "curriculum_id": fields.Integer(required=True, description="Curriculum ID"),
+        "name": fields.String(required=True, description="Curriculum name"),
+        "description": fields.String(description="Curriculum description"),
+        "average_score": fields.Float(description="Average score for this curriculum"),
+    },
+)
 
 @user_ns.route("/")
 class UserList(Resource):
@@ -80,3 +92,37 @@ class UserLogin(Resource):
         else:
             return {"message": "Invalid email or password"}, 401
 
+
+@user_ns.route("/<int:user_id>/curricula")
+class UserCurricula(Resource):
+    @user_ns.response(200, "Success", [curriculum_model])
+    @user_ns.response(404, "User not found")
+    def get(self, user_id):
+        """
+        Retrieve curricula followed by a learner along with their scores
+        """
+        # Check if the user exists
+        user = User.query.filter_by(user_id=user_id).first()
+        if not user:
+            return {"message": "User not found"}, 404
+
+        # Retrieve the curricula associated with the user
+        user_curricula = (
+            db.session.query(Curriculum, CurriculumAverage)
+            .join(UserCurriculum, UserCurriculum.curriculum_id == Curriculum.curriculum_id)
+            .outerjoin(CurriculumAverage, (CurriculumAverage.curriculum_id == Curriculum.curriculum_id) & (CurriculumAverage.user_id == user_id))
+            .filter(UserCurriculum.user_id == user_id)
+            .all()
+        )
+
+        # Build the response
+        result = []
+        for curriculum, average in user_curricula:
+            result.append({
+                "curriculum_id": curriculum.curriculum_id,
+                "name": curriculum.name,
+                "description": curriculum.description,
+                "average_score": average.average if average else None
+            })
+
+        return jsonify(result)
