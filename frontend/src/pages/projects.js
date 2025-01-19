@@ -5,9 +5,11 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import project1 from "../../public/images/projects/project1img1.png";
-import project2 from "../../public/images/projects/project2img1.png";
-import project3 from "../../public/images/projects/project3img1.png";
+import Metoan from "../../public/images/projects/Metoan_image.png";
+import DrawApp from "../../public/images/projects/DrawApp_image.jpeg";
+import EDC from "../../public/images/projects/siteEDC_image.png";
+import VidShare from "../../public/images/projects/VidShare_image.jpeg";
+import FlappyBird from "../../public/images/projects/Flappy_Bird_image.png";
 import TransitionEffect from "@/components/TransitionEffect";
 const FeaturedProject = ({ type, title, summary, img, link, github }) => {
   return (
@@ -137,31 +139,51 @@ const projects = () => {
           <div className="grid grid-cols-12 gap-24 gap-y-32 xl:gap-x-16 lg:gap-x-8 md:gap-y-24 sm:gap-x-0">
             <div className="col-span-12">
               <FeaturedProject
-                type="Tech Exchange"
-                title="Resale Market site"
-                summary="Tech exchange is a website for buying old mobiles. Buyers can buy old mobiles through this website. the first home page has 3 categories, if you click on the category button we can see the category products."
-                img={project1}
-                link="https://used-products-resale-45da8.web.app/"
-                github="https://github.com/Mihir160/b612-used-products-resale-clients-side"
+                type="Metoan"
+                title="Puzzle Game"
+                summary="Metoan is a one-on-one puzzle game played on a checkered field. The aim is to complete squares by placing points at the ends, with each square worth 1 point. Players must both maximise their winnings and block their opponents. Each move must be made quickly, otherwise the opponent takes over."
+                img={Metoan}
+                link="https://github.com/GDev-Karl/Metoan"
+                github="https://github.com/GDev-Karl/Metoan"
               ></FeaturedProject>
             </div>
             <div className="col-span-6 sm:col-span-12">
               <Projects
-                type="XtreameClean"
-                title="cleaning service website"
-                img={project2}
-                link="https://b6a11-service-review.web.app/"
-                github="https://github.com/Mihir160/b6a11-service-review-client-side"
+                type="DrawApp"
+                title="drawing application using Java and JavaFX"
+                img={DrawApp}
+                link="https://github.com/GDev-Karl/DrawApp"
+                github="https://github.com/GDev-Karl/DrawApp"
               ></Projects>
             </div>
             <div className="col-span-6 sm:col-span-12">
               {" "}
               <Projects
-                type="Code Stack"
-                title="Online Learning platform site"
-                img={project3}
-                link="https://code-stack-1a5a8.web.app/"
-                github="https://github.com/Mihir160/b610-learning-platform-client-side"
+                type="EDC Website"
+                title="Website"
+                img={EDC}
+                link="https://gdev-karl.github.io/siteEdc/"
+                github="https://github.com/GDev-Karl/siteEdc"
+              ></Projects>
+            </div>
+            <div className="col-span-6 sm:col-span-12">
+              {" "}
+              <Projects
+                type="VidShare"
+                title="Youtube Clone"
+                img={VidShare}
+                link="https://hilarious-muffin-7168a8.netlify.app/"
+                github="https://github.com/GDev-Karl/vid_share"
+              ></Projects>
+            </div>
+            <div className="col-span-6 sm:col-span-12">
+              {" "}
+              <Projects
+                type="Flappy Bird"
+                title="Puzzle Game"
+                img={FlappyBird}
+                link="https://drive.google.com/drive/folders/1LhLf2yk4B1GcgTXPwLPgvWjbKwbF0gQ3"
+                github="https://github.com/GDev-Karl/Flappy_Bird_"
               ></Projects>
             </div>
           </div>
