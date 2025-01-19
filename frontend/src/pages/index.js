@@ -19,10 +19,10 @@ export default function Home() {
       <main className="flex items-center text-dark w-full min-h-screen dark:text-light">
         <Layout className="pt-0 md:pt-16 sm:pt-8">
           <div className="flex items-center justify-between w-full lg:flex-col">
-            <div className="w-1/3 md:w-full">
+            <div className="w-2/5 md:w-full">
               <Image
                 src={Logo}
-                alt="mihir"
+                alt="Rihen Logo"
                 className="w-full h-auto lg:hidden md:inline-block md:w-full"
                 property
                 sizes="(max-width: 768px) 100vw, (max-width:120px) 50vw, 50vw"
@@ -31,7 +31,7 @@ export default function Home() {
             <div className="w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center">
               <AnimatedText
                 text="let's dream together let's create infinity"
-                className="!text-5xl !text-left xl:!text-4xl lg:!text-center lg:!text-3xl md:!text-3xl
+                className="!text-6xl !text-left xl:!text-5xl lg:!text-center lg:!text-4xl md:!text-3xl
                 sm:!text-2xl sm:py-4"
               />
               <p className="my-4 text-base font-medium md:text-sm sm:text-xs">
