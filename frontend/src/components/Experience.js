@@ -52,20 +52,44 @@ const Experience = () => {
         ></motion.div>
         <ul className="w-full flex flex-col items-start justify-between ml-4 xs:ml-2">
           <Details
-            position="MERN Developer"
-            company="AmeliaSoft"
-            companyLink="https://www.ameliasoft.com/"
+            position="Creation of an Adventure Game"
+            company="InnovateGames"
+            companyLink="https://karl-gerard-portfolio.netlify.app/"
             time="2023-(January-March)"
-            address=" Mohamdpur, Dhaka - 1207"
-            work="Worked on a team responsible for developing a new Website feature that allowed users to create and share short-form video content, including designing and implementing a new user interface and developing the backend infrastructure to support the feature."
+            address=" Yaounde, Cameroon"
+            work="Led the development of an interactive adventure game, incorporating immersive storylines, puzzle mechanics, and a dynamic open world. The game was built using Unity, with integrated multiplayer features and real-time player progression tracking. Collaborated closely with designers and sound engineers to create a captivating experience."
           ></Details>
           <Details
-            position="MERN Developer"
-            company="AmeliaSoft"
-            companyLink="https://www.ameliasoft.com/"
-            time="2023-(January-March)"
-            address=" Mohamdpur, Dhaka - 1207"
-            work="Worked on a team responsible for developing a new Website feature that allowed users to create and share short-form video content, including designing and implementing a new user interface and developing the backend infrastructure to support the feature."
+            position="DevelopeDevelopment of a Learning Management System"
+            company="TechAcademy"
+            companyLink="https://karl-gerard-portfolio.netlify.app/"
+            time="2023-(April-June)"
+            address=" Yaounde, Cameroon"
+            work="Developed and implemented a Learning Management System (LMS) for TechAcademy, allowing educators to create, manage, and distribute courses. Integrated features such as progress tracking, assessment tools, and real-time collaboration for students, resulting in an efficient educational experience tailored to modern learning needs."
+          ></Details>
+          <Details
+            position="Creation of a Collaborative Platform"
+            company="DevInnovators"
+            companyLink="https://karl-gerard-portfolio.netlify.app/"
+            time="2023-(July-September)"
+            address=" Yaounde, Cameroon"
+            work="Built a project management and collaboration platform for DevInnovators, enabling teams to work seamlessly on projects with task assignment, progress tracking, and file management. Integrated real-time chat and collaboration tools to enhance teamwork and overall project efficiency."
+          ></Details>
+          <Details
+            position="Design of a Business Management Mobile App"
+            company="GreenSolutions"
+            companyLink="https://karl-gerard-portfolio.netlify.app/"
+            time="2024-(February-April)"
+            address=" Yaounde, Cameroon"
+            work="Led the development of a mobile app designed for business management, streamlining operations such as task delegation, time tracking, and project analysis. Integrated with backend servers to ensure data synchronization and real-time updates, providing GreenSolutions with a powerful tool to improve team productivity."
+          ></Details>
+          <Details
+            position="Development of an Institutional Website"
+            company="GlobalPartners"
+            companyLink="https://karl-gerard-portfolio.netlify.app/"
+            time="2023-(November-December)"
+            address=" Yaounde, Cameroon"
+            work="Developed a professional website for GlobalPartners, showcasing their portfolio, services, and corporate values. Included contact forms, interactive elements, and an SEO-optimized structure to enhance online visibility and engagement with potential clients."
           ></Details>
         </ul>
       </div>
