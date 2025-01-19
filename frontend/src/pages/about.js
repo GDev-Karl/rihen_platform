@@ -42,7 +42,7 @@ const about = () => {
       <main className="flex w-full flex-col items-center justify-center dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
-            text="Passion Fuels Purpose!"
+            text="let's dream bigger!!"
             className="mb-16 lg:!text-7xl !text-6xl sm:!text-5xl xs:!text-3xl sm:mb-8"
           ></AnimatedText>
           <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
@@ -121,7 +121,7 @@ const about = () => {
                   className="inline-block text-7xl
                  font-bold md:text-6xl sm:text-5xl xl:text-4xl"
                 >
-                  0
+                  <AnimatedNumber value={10} />
                 </span>
                 <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:text-center md:text-lg sm:text-base xs:text-sm">
                   Satisfied Clients
@@ -132,7 +132,7 @@ const about = () => {
                   className="inline-block text-7xl
                  font-bold md:text-6xl sm:text-5xl xl:text-4xl"
                 >
-                  <AnimatedNumber value={5} />
+                  <AnimatedNumber value={10} />
                 </span>
                 <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:text-center md:text-lg sm:text-base xs:text-sm">
                   projects completed
@@ -140,7 +140,7 @@ const about = () => {
               </div>
               <div className="flex flex-col items-end justify-center xl:items-center">
                 <span className="inline-block text-7xl font-bold md:text-6xl sm:text-5xl xl:text-4xl">
-                  1
+                <AnimatedNumber value={5} />
                 </span>
                 <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:text-center md:text-lg sm:text-base xs:text-sm">
                   year of experience
@@ -150,7 +150,6 @@ const about = () => {
           </div>
           <Skill></Skill>
           <Experience></Experience>
-          <Education></Education>
         </Layout>
       </main>
     </>
