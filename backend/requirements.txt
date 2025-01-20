@@ -5,4 +5,4 @@ Flask-Migrate
 Flask-JWT-Extended
 python-dotenv
 psycopg2-binary
-axios
+flas
