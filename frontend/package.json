@@ -18,9 +18,9 @@
     "web-vitals": "^4.2.4"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "NODE_ENV=production node server.js"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-next": "^15.1.5"
   }
 }
