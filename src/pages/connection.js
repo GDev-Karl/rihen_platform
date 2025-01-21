@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-export default function connection() {
+export default function Connection() {
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +22,7 @@ export default function connection() {
               htmlFor="username"
               className="block text-sm font-medium text-gray-700"
             >
-              Nom d'utilisateur
+              Username
             </label>
             <input
               type="text"
@@ -38,7 +38,7 @@ export default function connection() {
               htmlFor="password"
               className="block text-sm font-medium text-gray-700"
             >
-              Mot de passe
+              Password
             </label>
             <input
               type="password"

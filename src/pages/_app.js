@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
-    if (router.pathname === "/connection" || router.pathname === "/intranet") {
+    if (router.pathname === "/intranet") {
       return <Component {...pageProps} />;
     }
 
