@@ -8,7 +8,7 @@ import Average from "../components/StaticComponents/Average";
 import Planning from "../components/Planning/Planning";
 import Project from "../components/Project/Project";
 
-export default function intranetPage() {
+export default function IntranetPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [activeView, setActiveView] = useState("Home");
 

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 import {
   AppBar,
   Toolbar,
@@ -26,10 +27,12 @@ const Header = ({ toggleSidebar, notificationsCount }) => (
         >
           <MenuIcon />
         </IconButton>
-        <img
+        <Image
           alt="Rihen Logo"
-          src="../assets/images/Rihen.png"
-          style={{ height: "50px", marginRight: "10px" }}
+          src="/assets/images/Rihen.png"
+          width={70}
+          height={70}
+          style={{ marginRight: '15px' }}
         />
         <Typography variant="h6" sx={{ color: "#000" }}>
           Rihen Dashboard
