@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 const Logo = () => {
   // Tableau des images

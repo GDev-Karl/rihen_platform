@@ -109,7 +109,7 @@ const Sidebar = ({ showText, onMenuSelect }) => {
           p: 2,
         }}
       >
-        <Avatar src="/path/to/profile-picture.jpg" alt="Profile" />
+        <Avatar src="/assets/images/profile/MainLogo.png" alt="Profile" />
         {showText && <ListItemText primary="My Profile" />}
       </Box>
     </Box>
