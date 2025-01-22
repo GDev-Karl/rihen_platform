@@ -4,7 +4,8 @@ import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import MainLogo from "../../public/images/profile/MainLogo.png";
-import Techn from "../../public/images/about/tech.jpeg"
+import Tech from "../../public/images/about/tech.jpeg";
+import Gaming from "../../public/images/about/gaming.jpeg";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 import Skill from "@/components/Skill";
 import Experience from "@/components/Experience";
@@ -60,6 +61,7 @@ const about = () => {
                 virtual and augmented reality, electronics, software security,
                 and many others.
               </p>
+
               <p className="my-4 font-medium">
                 With the ambition of becoming a key player, Rihen is developing
                 a video game and animated film studio while expanding its
@@ -108,7 +110,7 @@ const about = () => {
               />
               <Image
                 alt="mihir"
-                src={MainLogo}
+                src={Gaming}
                 className="w-full h-auto rounded-2xl"
                 property
                 sizes="(max-width: 768px) 100vw, (max-width:120px) 50vw, 33vw"
@@ -121,7 +123,7 @@ const about = () => {
                   className="inline-block text-7xl
                  font-bold md:text-6xl sm:text-5xl xl:text-4xl"
                 >
-                  <AnimatedNumber value={10} />
+                  + <AnimatedNumber value={20} />
                 </span>
                 <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:text-center md:text-lg sm:text-base xs:text-sm">
                   Satisfied Clients
@@ -132,7 +134,7 @@ const about = () => {
                   className="inline-block text-7xl
                  font-bold md:text-6xl sm:text-5xl xl:text-4xl"
                 >
-                  <AnimatedNumber value={10} />
+                  + <AnimatedNumber value={20} />
                 </span>
                 <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:text-center md:text-lg sm:text-base xs:text-sm">
                   projects completed
@@ -140,7 +142,7 @@ const about = () => {
               </div>
               <div className="flex flex-col items-end justify-center xl:items-center">
                 <span className="inline-block text-7xl font-bold md:text-6xl sm:text-5xl xl:text-4xl">
-                <AnimatedNumber value={5} />
+                  + <AnimatedNumber value={10} />
                 </span>
                 <h2 className="text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:text-center md:text-lg sm:text-base xs:text-sm">
                   year of experience
