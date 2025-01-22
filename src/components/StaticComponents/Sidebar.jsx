@@ -34,13 +34,13 @@ const Sidebar = ({ showText, onMenuSelect }) => {
     { text: "Home", icon: <Home style={iconStyle} /> },
     { text: "My Planning", icon: <Event style={iconStyle} /> },
     { text: "Projects", icon: <AccountTree style={iconStyle} /> },
-    { text: "QA Reviews I can make", icon: <CheckCircle style={iconStyle} /> },
-    { text: "Evaluation quizzes", icon: <Help style={iconStyle} /> },
+    { text: "Projets Done", icon: <CheckCircle style={iconStyle} /> },
+    { text: "Evaluations", icon: <Help style={iconStyle} /> },
   ];
   const secondaryMenuItems = [
-    { text: "Curriculums", icon: <School style={iconStyle} /> },
+    //{ text: "Curriculums", icon: <School style={iconStyle} /> },
     { text: "Concepts", icon: <Description style={iconStyle} /> },
-    { text: "Conference rooms", icon: <Forum style={iconStyle} /> },
+    { text: "Chat", icon: <Forum style={iconStyle} /> },
     { text: "Servers", icon: <Dns style={iconStyle} /> },
     { text: "Sandboxes", icon: <Code style={iconStyle} /> },
   ];
