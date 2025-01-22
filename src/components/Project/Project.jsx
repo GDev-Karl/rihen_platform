@@ -2,77 +2,74 @@ import React from "react";
 import { Grid2 } from "@mui/material";
 import ModuleCard from "./ModuleCard";
 
-
 const moduleDataArray = [
   {
-    moduleName: "Module 1",
+    moduleName: "Software Engineering Fundamentals",
     status: "In progress",
     globalScore: 85,
     courses: [
-      { name: "Month 1", score: 80, status: "Completed" },
-      { name: "Month 2", score: 90, status: "In progress" },
+      {
+        name: "Introduction to Software Engineering",
+        score: 80,
+        status: "Completed",
+      },
+      {
+        name: "Software Development Life Cycle",
+        score: 90,
+        status: "In progress",
+      },
+      { name: "Requirements Engineering", score: 88, status: "In progress" },
     ],
   },
   {
-    moduleName: "Module 2",
+    moduleName: "Object-Oriented Programming",
     status: "Completed",
     globalScore: 75,
     courses: [
-      { name: "Month 1", score: 70, status: "Completed" },
-      { name: "Month 2", score: 80, status: "Completed" },
+      { name: "Introduction to OOP", score: 70, status: "Completed" },
+      { name: "Advanced OOP Concepts", score: 80, status: "Completed" },
+      { name: "Design Patterns in OOP", score: 78, status: "Completed" },
     ],
   },
-
   {
-    moduleName: "Module 2",
-    status: "Completed",
-    globalScore: 75,
+    moduleName: "Web Development",
+    status: "In progress",
+    globalScore: 80,
     courses: [
-      { name: "Month 1", score: 70, status: "Completed" },
-      { name: "Month 2", score: 80, status: "Completed" },
+      { name: "HTML & CSS Fundamentals", score: 85, status: "Completed" },
+      { name: "JavaScript Basics", score: 78, status: "Completed" },
+      { name: "Responsive Web Design", score: 82, status: "In progress" },
+      { name: "Client-Side Frameworks", score: 80, status: "In progress" },
     ],
   },
-
   {
-    moduleName: "Module 2",
+    moduleName: "Database Systems",
     status: "Completed",
-    globalScore: 75,
+    globalScore: 90,
     courses: [
-      { name: "Month 1", score: 70, status: "Completed" },
-      { name: "Month 2", score: 80, status: "Completed" },
+      { name: "Introduction to Databases", score: 95, status: "Completed" },
+      { name: "Relational Databases & SQL", score: 89, status: "Completed" },
+      { name: "NoSQL Databases", score: 92, status: "Completed" },
     ],
   },
-
   {
-    moduleName: "Module 2",
-    status: "Completed",
-    globalScore: 75,
+    moduleName: "Software Testing and Quality Assurance",
+    status: "In progress",
+    globalScore: 88,
     courses: [
-      { name: "Month 1", score: 70, status: "Completed" },
-      { name: "Month 2", score: 80, status: "Completed" },
+      {
+        name: "Unit Testing & Test-Driven Development",
+        score: 90,
+        status: "Completed",
+      },
+      {
+        name: "Integration and System Testing",
+        score: 85,
+        status: "In progress",
+      },
+      { name: "Automated Testing Tools", score: 87, status: "In progress" },
     ],
   },
-
-  {
-    moduleName: "Module 2",
-    status: "Completed",
-    globalScore: 75,
-    courses: [
-      { name: "Month 1", score: 70, status: "Completed" },
-      { name: "Month 2", score: 80, status: "Completed" },
-    ],
-  },
-
-  {
-    moduleName: "Module 2",
-    status: "Completed",
-    globalScore: 75,
-    courses: [
-      { name: "Month 1", score: 70, status: "Completed" },
-      { name: "Month 2", score: 80, status: "Completed" },
-    ],
-  },
-  // Ajoutez plus de modules ici
 ];
 
 // Définition du composant Project

@@ -34,13 +34,14 @@ export default function Home() {
                 className="!text-6xl !text-left xl:!text-5xl lg:!text-center lg:!text-4xl md:!text-3xl
                 sm:!text-2xl sm:py-4"
               />
-              <p className="my-4 text-base font-medium md:text-sm sm:text-xs">
+              <p className="my-4 text-lg font-medium md:text-base sm:text-sm">
                 Rihen serves a wide variety of audiences, including creative
                 studios, independent developers, technology and electronics
                 companies, advertising agencies, and educational institutions,
                 with a global vision of democratizing powerful solutions for
                 each sector.
               </p>
+
               <div className="flex items-center self-start mt-2 lg:self-center">
                 <Link
                   href="/connection"

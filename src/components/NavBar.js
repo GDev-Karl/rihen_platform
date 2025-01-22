@@ -2,7 +2,13 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Logo from "./Logo";
 import { useRouter } from "next/router";
-import { TwitterIcon, GithubIcon, LinkedInIcon, MoonIcon, SunIcon } from "./Icon";
+import {
+  TwitterIcon,
+  GithubIcon,
+  LinkedInIcon,
+  MoonIcon,
+  SunIcon,
+} from "./Icon";
 import { motion } from "framer-motion";
 import useThemeSwitcher from "./hooks/useThemeSwitcher";
 
@@ -79,19 +85,27 @@ const NavBar = () => {
 
       <div className="w-full flex justify-between items-center lg:hidden">
         <nav>
-          <CustomLink href="/" title="Home" className="mr-4" />
-          <CustomLink href="/about" title="About" className="mx-4" />
-          <CustomLink href="/projects" title="Projects" className="mx-4" />
-          <CustomLink href="/articles" title="Articles" className="ml-4" />
+          <CustomLink href="/" title="Home" className="mr-8 text-lg" />
+          <CustomLink href="/about" title="About" className="mx-8 text-lg" />
+          <CustomLink
+            href="/projects"
+            title="Projects"
+            className="mx-8 text-lg"
+          />
+          <CustomLink
+            href="/articles"
+            title="Articles"
+            className="ml-8 text-lg"
+          />
         </nav>
 
         <nav className="flex items-center justify-center flex-wrap">
-        <motion.a
+          <motion.a
             href="https://x.com/Karl_Gerard_"
             target={"_blank"}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}
-            className="w-6 mr-3"
+            className="w-8 mr-4"
           >
             <TwitterIcon></TwitterIcon>
           </motion.a>
@@ -100,7 +114,7 @@ const NavBar = () => {
             target={"_blank"}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}
-            className="w-6 mr-3"
+            className="w-8 mr-4"
           >
             <GithubIcon></GithubIcon>
           </motion.a>
@@ -109,7 +123,7 @@ const NavBar = () => {
             target={"_blank"}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.9 }}
-            className="w-6 ml-3"
+            className="w-8 ml-4"
           >
             <LinkedInIcon></LinkedInIcon>
           </motion.a>
@@ -162,7 +176,7 @@ const NavBar = () => {
           </nav>
 
           <nav className="flex items-center justify-center flex-wrap mt-2">
-          <motion.a
+            <motion.a
               href="https://github.com/Mihir160"
               target={"_blank"}
               whileHover={{ y: -2 }}

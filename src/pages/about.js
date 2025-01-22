@@ -48,10 +48,10 @@ const about = () => {
           ></AnimatedText>
           <div className="grid w-full grid-cols-8 gap-16 sm:gap-8">
             <div className="col-span-3 flex flex-col items-start justify-start xl:col-span-4 md:order-2 md:col-span-8">
-              <h2 className="mb-4 text-lg font-bold uppercase text-dark dark:text-light/75">
+              <h2 className="mb-4 text-2xl font-bold uppercase text-dark dark:text-light/75">
                 Company presentation
               </h2>
-              <p className="font-medium">
+              <p className="text-lg font-medium">
                 Rihen is a multidisciplinary company at the crossroads of
                 technology, art, and entertainment. It is distinguished by its
                 ability to develop innovative solutions, ranging from graphics
@@ -62,7 +62,7 @@ const about = () => {
                 and many others.
               </p>
 
-              <p className="my-4 font-medium">
+              <p className="my-4 text-lg font-medium">
                 With the ambition of becoming a key player, Rihen is developing
                 a video game and animated film studio while expanding its
                 horizons to sectors such as advertising, interactive electronic
@@ -73,7 +73,8 @@ const about = () => {
                 in key areas such as mixed reality, software security, and
                 technological integration.
               </p>
-              <p className="font-medium">
+
+              <p className="text-lg font-medium">
                 Rihen serves a wide variety of stakeholders, including creative
                 studios, independent developers, technology and electronics
                 companies, advertising agencies, and educational institutions,
