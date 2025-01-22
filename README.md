@@ -1,4 +1,4 @@
-# Rihen Universe - Fullstack
+# Rihen Universe
 
 This branch contains the **complete codebase** for the **Rihen Universe** platform, a collaboration and e-learning solution. The project is structured into two main parts: the `frontend` and the `backend`, each located in its respective directory.
 
