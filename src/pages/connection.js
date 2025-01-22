@@ -15,7 +15,7 @@ export default function Connection() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
-        <h1 className="text-2xl font-bold mb-4 text-center">Connexion Intranet</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center">Intranet Connectiont</h1>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label
@@ -53,7 +53,7 @@ export default function Connection() {
             type="submit"
             className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
           >
-            Se connecter
+            Login
           </button>
         </form>
       </div>
