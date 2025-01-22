@@ -12,7 +12,7 @@ const Dashboard = () => {
     <Box sx={{ padding: 3 }}>
       <Grid2 container spacing={2}>
         <Grid2 item size={8}>
-          <Overview userId={1}/>
+          <Overview userId={11}/>
         </Grid2>
         <Grid2 item size={4}>
           <LiveEvents />
