@@ -30,7 +30,7 @@ export default function Home() {
             </div>
             <div className="w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center">
               <AnimatedText
-                text="let's dream together let's create infinity"
+                text="Turning Vision Into Reality With Code And Creativity"
                 className="!text-6xl !text-left xl:!text-5xl lg:!text-center lg:!text-4xl md:!text-3xl
                 sm:!text-2xl sm:py-4"
               />
@@ -60,7 +60,6 @@ export default function Home() {
             </div>
           </div>
         </Layout>
-        <HireMe />
         <div className="absolute right-8 bottom-8 inline-block w-24 md:hidden">
           <Image src={lightBulb} alt="buld" className="w-full h-auto"></Image>
         </div>
