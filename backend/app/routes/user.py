@@ -71,17 +71,17 @@ class UserList(Resource):
 @user_ns.route("/login")
 class UserLogin(Resource):
     @user_ns.expect(user_ns.model("Login", {
-        "email": fields.String(required=True, description="The email address of the user"),
+        "username": fields.String(required=True, description="The username of the user"),
         "password": fields.String(required=True, description="The password of the user"),
     }))
     def post(self):
         """Authenticate a user"""
         data = user_ns.payload
-        email = data.get("email")
+        username = data.get("username")
         password = data.get("password")
 
-        # check if the user exists and if the password is correct
-        user = User.query.filter_by(email=email).first()
+        # Check if the user exists and if the password is correct
+        user = User.query.filter_by(name=username).first()
         if user and user.password == password:
             return {
                 "message": "Authentication successful",
@@ -90,7 +90,7 @@ class UserLogin(Resource):
                 "email": user.email,
             }, 200
         else:
-            return {"message": "Invalid email or password"}, 401
+            return {"message": "Invalid username or password"}, 401
 
 
 @user_ns.route("/<int:user_id>/curricula")
