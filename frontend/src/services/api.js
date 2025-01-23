@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://rihen.seedsoftengine.com/";
-
+const BASE_URL = "http://127.0.0.1:5000/"
 // Function to retrieve user overview data
 export const getUserOverview = async (userId) => {
   try {
@@ -19,5 +18,30 @@ export const getUserOverview = async (userId) => {
     }
     //handle other errors
     throw new Error(error.message || "An error occurred while fetching data");
+  }
+};
+
+export const login = async (username, password) => {
+  try {
+    const response = await fetch(`${BASE_URL}/users/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        password,
+      }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return { success: true, data }; // Return success and data
+    } else {
+      const errorData = await response.json();
+      return { success: false, message: errorData.message || "Invalid username or password." };
+    }
+  } catch (error) {
+    return { success: false, message: "Unable to connect to the server. Please try again later." };
   }
 };
